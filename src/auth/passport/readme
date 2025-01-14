@@ -1,0 +1,4 @@
+1,file local là khi đăng nhập trả ra data user trừ mật khẩu
+2,hàm login và refreshtoken của auth.controller (hàm login được bọc file local thì lấy data user được trả về từ file local, còn hàm refreshtoken lấy dữ liệu từ giải mã refresh_token) quyết định giá cho 2 token sinh ra tiếp theo vứt cho fe lưu 
+3, hàm jwt giúp giải mã token được gửi lên qua bear token và check các thứ quyết định giá trị req.user cho hàm controller dùng 
+4, các privateRouter trong jwt-auth-guard là những router phân biệt của các role khi đã đăng nhập, thế còn khi chưa đăng nhập đã có phần check token lo rồi nên là khi tạo permission cũng ám chỉ những quyền riêng cho 1 role nào đó, còn permission chung của all role thì ko cần tạo

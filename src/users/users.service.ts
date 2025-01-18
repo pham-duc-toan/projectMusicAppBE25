@@ -442,10 +442,12 @@ export class UserService {
   //GOOGLE OAUTH
   //tim user bang email type google
   async findOneByEmailGoogle(email: string) {
-    const user = await this.userModel.findOne({
-      username: email,
-      type: 'GOOGLE',
-    });
+    const user = await this.userModel
+      .findOne({
+        username: email,
+        type: 'GOOGLE',
+      })
+      .populate('role');
     return user;
   }
   //tim user bang email type google

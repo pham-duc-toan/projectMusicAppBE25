@@ -157,7 +157,7 @@ export class UserService {
   }
   async checkUserLogin(username: string, pass: string) {
     const user = await this.userModel
-      .findOne({ username: username })
+      .findOne({ username: username, type: 'SYSTEM' })
       .populate('role')
       .lean()
       .exec();

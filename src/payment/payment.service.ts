@@ -13,7 +13,7 @@ export class PaymentService {
     const redirectUrl =
       'https://musicapptoandeptrai.vercel.app/en/singers/createSinger';
     //link api moi
-    const linkNgrok = 'https://mucsicapptoandeptrai.onrender.com';
+    const linkNgrok = 'https://mucicapptoandeptrai.onrender.com';
     const ipnUrl = linkNgrok + '/api/v1/payment/ipn';
     const requestType = 'payWithMethod';
     const amount = '289000';

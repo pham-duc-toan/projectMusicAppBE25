@@ -12,7 +12,7 @@ export class PaymentService {
     const partnerCode = 'MOMO';
     const redirectUrl = 'http://localhost:3000/singers/createSinger';
     //link api moi
-    const linkNgrok = 'https://mucsicapptoandeptrai.onrender.com/';
+    const linkNgrok = 'https://mucsicapptoandeptrai.onrender.com';
     const ipnUrl = linkNgrok + '/api/v1/payment/ipn';
     const requestType = 'payWithMethod';
     const amount = '289000';

@@ -79,7 +79,7 @@ export class AuthController {
 
     // Redirect về trang chủ
     return res.redirect(
-      `http://localhost:3000/auth/redirect-login-google?access_token=${response.access_token}`,
+      `https://musicapptoandeptrai.vercel.app/auth/redirect-login-google?access_token=${response.access_token}`,
     );
   }
 }

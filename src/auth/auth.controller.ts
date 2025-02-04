@@ -63,23 +63,11 @@ export class AuthController {
     const refreshTokenExpire = ms(process.env.JWT_REFRESH_EXPIRE || '1d'); // Mặc định 1d nếu biến không có
 
     const response = await this.authService.login(req.user);
-    res.cookie('refresh_token', response.refresh_token, {
-      httpOnly: true, // Cookie chỉ có thể truy cập từ phía server
-      sameSite: 'strict', // Ngăn chặn CSRF
-      secure: true,
-      maxAge: refreshTokenExpire,
-    });
-
-    res.cookie('access_token', response.access_token, {
-      httpOnly: true, // Cookie chỉ có thể truy cập từ phía server
-      sameSite: 'strict', // Ngăn chặn CSRF
-      secure: true,
-      maxAge: accessTokenExpire,
-    });
 
     // Redirect về trang chủ
     return res.redirect(
-      `https://musicapptoandeptrai.vercel.app/auth/redirect-login-google?access_token=${response.access_token}`,
+      process.env.FRONTEND_URL +
+        `/auth/redirect-login-google?access_token=${response.access_token}&refresh_token=${response.refresh_token}&access_expire=${accessTokenExpire}&refresh_expire=${refreshTokenExpire}`,
     );
   }
 }

@@ -31,6 +31,7 @@ import { GoogleStrategy } from './passport/google.strategy';
     ConfigModule.forFeature(googleOauthConfig),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy, GoogleStrategy],
+  // providers: [AuthService],
   controllers: [AuthController],
 })
 export class AuthModule {}

@@ -72,6 +72,7 @@ export class SongsController {
   }
 
   @Patch('editSong/:id')
+  @UseGuards(JwtAuthGuard)
   @UseInterceptors(
     FileFieldsInterceptor([
       { name: 'avatar', maxCount: 1 },
@@ -80,7 +81,6 @@ export class SongsController {
     ValidatorFileTypeImageAndAudio,
     CloudinaryMultiFileUploadInterceptor,
   )
-  @UseGuards(JwtAuthGuard)
   async update(
     @Param('id') id: string,
     @UploadedFiles()
